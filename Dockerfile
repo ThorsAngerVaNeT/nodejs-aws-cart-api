@@ -3,8 +3,7 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm ci && npm cache clean --force
 COPY . .
-RUN ["npm", "run", "build"]
-RUN ["npm", "prune", "--production"]
+RUN npm run build && npm prune --production
 
 
 FROM mhart/alpine-node:slim-16

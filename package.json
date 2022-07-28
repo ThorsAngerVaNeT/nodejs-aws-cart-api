@@ -18,7 +18,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:lint": "dockerlint Dockerfile",
+    "docker:build": "docker build -t thorsangervanet-cart-api .",
+    "docker:run": "docker run --rm -d  --name thorsangervanet-cart-api -p 4000:4000/tcp thorsangervanet-cart-api:latest",
+    "docker:stop": "docker stop thorsangervanet-cart-api"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",

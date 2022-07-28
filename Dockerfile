@@ -6,7 +6,8 @@ COPY . .
 RUN npm run build && npm prune --production
 
 
-FROM mhart/alpine-node:slim-16
+FROM alpine
+RUN apk add --update nodejs npm
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=builder /app .
